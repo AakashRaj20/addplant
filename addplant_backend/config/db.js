@@ -7,7 +7,7 @@ dotenv.config();
 
 const sequelize = new Sequelize(
   process.env.DB_STRING,
-  { dialect: pg }
+  { dialectModule: pg }
 );
 
 sequelize
