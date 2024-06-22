@@ -35,7 +35,7 @@ export default function Home() {
     try {
       setLoading(true);
       const response = await fetch(
-        process.env.NEXT_PUBLIC_API_URL + "/api/v1/addPlant",
+        process.env.NEXT_PUBLIC_API_URL + "/api/v1/add-Plant",
         {
           method: "POST",
           body: formData,
