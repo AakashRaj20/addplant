@@ -1,8 +1,11 @@
 import { DataTypes, Sequelize } from "sequelize";
 import createPlantModel from "../models/plantModel.js";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 const sequelize = new Sequelize(
-  `postgres://postgres:2602@localhost:5432/add_plant`,
+  process.env.DB_STRING,
   { dialect: "postgres" }
 );
 
