@@ -1,4 +1,3 @@
-// SearchBar.js
 import React from 'react';
 import {View, TextInput, StyleSheet, Image} from 'react-native';
 
@@ -9,6 +8,7 @@ const Searchbar = ({value, onChangeText}) => {
       <TextInput
         style={styles.input}
         placeholder="Search Plants"
+        placeholderTextColor="black"
         value={value}
         onChangeText={onChangeText}
       />

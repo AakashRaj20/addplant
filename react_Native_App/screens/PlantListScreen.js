@@ -14,6 +14,7 @@ import axios from 'axios';
 
 const PlantListScreen = ({navigation}) => {
   const [plants, setPlants] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchPlants = async () => {
     try {
@@ -21,7 +22,9 @@ const PlantListScreen = ({navigation}) => {
         'https://addplant-zluv.vercel.app/api/v1/plants',
       );
       setPlants(res.data);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.error(error);
     }
   };
@@ -62,12 +65,16 @@ const PlantListScreen = ({navigation}) => {
       </View>
       <Text style={styles.title}>List of Plants</Text>
       <View style={styles.cardContainer}>
-        <FlatList
-          data={plants}
-          renderItem={renderPlantItem}
-          keyExtractor={item => item.plant_id}
-          numColumns={2}
-        />
+        {loading ? (
+          <Text>Loading...</Text>
+        ) : (
+          <FlatList
+            data={plants}
+            renderItem={renderPlantItem}
+            keyExtractor={item => item.plant_id}
+            numColumns={2}
+          />
+        )}
       </View>
       <BottomNavBar />
     </View>
@@ -88,7 +95,8 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 155,
-    margin: 20,
+    marginHorizontal: 10,
+    marginBottom: 20,
     borderRadius: 10,
     backgroundColor: 'white',
     elevation: 5,
