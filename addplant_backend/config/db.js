@@ -10,6 +10,7 @@ const sequelize = new Sequelize(
   { dialectModule: pg }
 );
 
+
 sequelize
   .authenticate()
   .then(() => {
