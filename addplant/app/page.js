@@ -34,10 +34,13 @@ export default function Home() {
 
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3001/api/v1/add-plant", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_API_URL + "/api/v1/addPlant",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to submit form");
