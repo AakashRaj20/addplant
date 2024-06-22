@@ -1,12 +1,13 @@
 import { DataTypes, Sequelize } from "sequelize";
 import createPlantModel from "../models/plantModel.js";
 import * as dotenv from "dotenv";
+import pg from "pg";
 
 dotenv.config();
 
 const sequelize = new Sequelize(
   process.env.DB_STRING,
-  { dialect: "postgres" }
+  { dialect: pg }
 );
 
 sequelize
