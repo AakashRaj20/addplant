@@ -1,5 +1,3 @@
-// PlantListScreen.js
-
 import React, {useState, useEffect} from 'react';
 import {
   View,
@@ -19,7 +17,9 @@ const PlantListScreen = ({navigation}) => {
 
   const fetchPlants = async () => {
     try {
-      const res = await axios.get('http://10.0.2.2:3001/api/v1/plants');
+      const res = await axios.get(
+        'https://addplant-zluv.vercel.app/api/v1/plants',
+      );
       setPlants(res.data);
     } catch (error) {
       console.error(error);
